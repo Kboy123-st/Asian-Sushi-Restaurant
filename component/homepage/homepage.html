@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <link rel="stylesheet" href="homepage.css">
+   <link rel="icon" href="../tap.png">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <style>
+      @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nata+Sans:wght@100..900&display=swap');
+   </style>
+   <title>Dashboard</title>
+   <script src="https://kit.fontawesome.com/0586c54656.js" crossorigin="anonymous"></script>
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+   <script type="text/javascript">
+      google.charts.load('current', {
+         'packages': ['corechart']
+      });
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+         var data = google.visualization.arrayToDataTable([
+            ['Days', 'Sales', 'Expenses'],
+            ['Monday', 1000, 400],
+            ['Tuesday', 1370, 460],
+            ['Wednesday', 910, 920],
+            ['Thursday', 1030, 540],
+            ['Friday', 500, 720],
+            ['Saturday', 990, 620],
+            ['Sunday', 1090, 900]
+         ]);
+
+         var options = {
+            title: 'Restaurant Performance',
+            // curveType: 'function',
+            curveType: 'none',
+            legend: {
+               position: 'bottom'
+            },
+
+            // ADD THESE LINES
+            width: 1200, // Set this to your desired width
+            height: 500, // Set a height as well
+
+            animation: {
+               startup: true, // Animate when chart first loads
+               duration: 600, // 1000ms = 1 second
+               easing: 'out' // Animation style: 'in', 'out', 'inAndOut'
+            }
+         };
+
+         var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+         chart.draw(data, options);
+      }
+   </script>
+   <style>
+      .menu .dropdown:nth-child(1) button:nth-child(1) {
+         background-color: rgba(103, 103, 103, 0.2);
+         color: rgb(176, 46, 46);
+      }
+   </style>
+</head>
+
+<body id="body">
+
+
+   <!-- header -->
+
+   <header>
+      <div class="container">
+         <div class="navbar-top " id="header">
+            <img src="../logo.png" alt="logo" width="50px" onclick="show()">
+            <div class="hamburger" onclick="hide()">
+               <span></span>
+               <span></span>
+               <span></span>
+            </div>
+            <div class="row-right">
+               <button class="right-btn pos" id="pos">
+                  <a href="../POS/pos.html">POS</a>
+               </button>
+               <button class="right-btn">
+                  <i class="fa-solid fa-bell fa-2xl"></i>
+               </button>
+               <div class="profile">
+                  <img src="../profile.jpg" alt="profile">
+               </div>
+               <button class="logout right-btn">
+                  <a href="../../index.html"><i class="fa-solid fa-right-from-bracket"></i></a>
+               </button>
+
+            </div>
+         </div>
+   </header>
+
+   <!-- navbar -->
+
+   <nav>
+      <div class="nav-left sidebar" id="sidebar">
+         <div class="menu" id="menu">
+            <div class="dropdown dropdown1">
+               <button><i class="fa-solid fa-chart-column fa-xl"></i> Dashboard </button>
+            </div>
+            <div class="dropdown">
+               <button onclick="leftButton2()"><i class="fa-solid fa-plate-wheat fa-xl"></i> Products </button>
+               <div class="item" id="item2">
+                  <a href="../product/createProduct.html"><i class="fa-solid fa-cart-plus"></i> Create Product</a>
+                  <a href="../product/allProduct.html"><i class="fa-solid fa-list"></i> All Product</a>
+                  <a href="../product/catagory.html"><i class="fa-solid fa-layer-group"></i> Catagory</a>
+               </div>
+            </div>
+            <div class="dropdown">
+               <button onclick="leftButton3()"><i class="fa-solid fa-user-group fa-xl"></i> People </button>
+               <div class="item" id="item3">
+                  <a href="../people/customers.html"><i class="fa-solid fa-users-line"></i> Customer</a>
+                  <a href="../people/users.html"><i class="fa-solid fa-users-gear"></i> User</a>
+               </div>
+            </div>
+            <div class="dropdown">
+               <button onclick="leftButton4()"><i class="fa-solid fa-gear fa-xl"></i> Setting </button>
+               <div class="item" id="item4">
+                  <a href="../setting/systemSetting.html"> <i class="fa-solid fa-gears"></i> System Setting</a>
+                  <a href="../setting/POSSetting.html"><i class="fa-solid fa-store"></i> POS Setting</a>
+                  <a href="../setting/currency.html"><i class="fa-solid fa-money-bill-transfer"></i> Currency</a>
+                  <a href="../setting/backup.html"><i class="fa-solid fa-database"></i> Back Up</a>
+               </div>
+            </div>
+            <div class="dropdown">
+               <button onclick="leftButton5()"><i class="fa-solid fa-flag fa-xl"></i> Reports</button>
+               <div class="item" id="item5">
+                  <a href="../report/saleReport.html"><i class="fa-solid fa-arrow-trend-up"></i> Sale Report</a>
+                  <a href="../report/ProductReport.html"><i class="fa-solid fa-clipboard-check"></i> Product Report</a>
+                  <a href="../report/cumstomerReport.html"><i class="fa-solid fa-user-pen"></i> Customer Report</a>
+                  <a href="../report/topSelling.html"><i class="fa-solid fa-cart-shopping"></i> Top Selling</a>
+                  <a href="../report/bestCumstomers.html"><i class="fa-solid fa-user-clock"></i> Best Customers</a>
+                  <a href="../report/usersReport.html"><i class="fa-solid fa-user-pen"></i> Users Reprts</a>
+               </div>
+               <div class="background">
+               </div>
+            </div>
+         </div>
+      </div>
+
+   </nav>
+
+   <!-- content -->
+
+   <main>
+      <div class="container-main">
+         <div class="box1" id="box">
+            <img src="sale.png" alt="" width="40px">
+            <div>
+               <p>Sales</p>
+               <p class="cash">$ 1,050.00</p>
+            </div>
+         </div>
+         <div class="box2" id="box">
+            <img src="product.png" alt="" width="40px">
+            <div>
+               <p>Products</p>
+               <p class="cash">260</p>
+            </div>
+         </div>
+         <div class="box3" id="box">
+            <img src="income.png" alt="" width="40px">
+            <div>
+               <p>Incomes</p>
+               <p class="cash">$ 1,500.00</p>
+            </div>
+         </div>
+         <div class="box4" id="box">
+            <div id="curve_chart" style=" margin-top: -35px; margin-left: -95px;">
+            </div>
+         </div>
+         <div class="box5" id="box">
+            <div class="top-sell">
+               <p>Top Selling Products (2025)</p>
+               <div class="img-top">
+                  <img src="../POS/img/grill.jpg">
+               </div>
+               <p>Grill Black Cod with Miso</p>
+               <p>$ 25.00</p>
+            </div>
+         </div>
+      </div>
+   </main>
+   <footer>
+      <div class="footer">
+
+         <divn style="line-height: 6px;">
+            <p>Asian Sushi Restaurant</p>
+            <hr>
+            <p>&copy; 2025 Developed by Group 3</p>
+            <p>All right reserved - v1.0</p>
+         </divn>
+
+      </div>
+   </footer>
+
+
+
+
+
+   <script src="../../index.js"></script>
+
+</body>
+
+</html>
