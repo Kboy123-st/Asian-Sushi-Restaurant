@@ -226,7 +226,7 @@ nav {
    background-color: brown;
    margin-left: 5px;
    border-radius: 5px;
-   padding: 40px;
+   padding: 10px;
    border: none;
    color: white;
    box-shadow: #f8f8f8
@@ -237,6 +237,7 @@ nav {
    display: inline-block;
    width: 55px;
    height: 27px;
+   margin: 10px 0;
 }
 
 .switch input {
@@ -374,3 +375,4 @@ footer {
    border-radius: 10px;
 
 }
+
